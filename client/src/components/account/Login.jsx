@@ -142,6 +142,8 @@ const Login = () => {
               label="Enter Password"
             />
 
+            {error && <Error>{error}</Error>}
+
             <LoginButton
               variant="contained"
               //   onClick={() => loginUser()}
