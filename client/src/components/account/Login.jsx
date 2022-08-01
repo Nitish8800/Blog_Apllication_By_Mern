@@ -97,6 +97,8 @@ const Login = () => {
 
   const onInputChange = (e) => {
     setSignup({ ...signup, [e.target.name]: e.target.value });
+
+    // console.log( [e.target.name], e.target.value);
   };
 
   const toggleSignup = () => {
