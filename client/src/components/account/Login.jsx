@@ -52,7 +52,7 @@ const SignupButton = styled(Button)`
 
 const Text = styled(Typography)`
   color: #878787;
-  font-size: 14px;
+  font-size: 15px;
 `;
 
 const Error = styled(Typography)`
@@ -86,10 +86,13 @@ const Login = () => {
     <Component>
       <Box>
         <Image src={imageURL} alt="blog image" />
-        <Wrapper>
+
+        {/* <<<<<<<<<<<<<<<<<<<<<<<    Log In         >>>>>>>>>>>>>>>>> */}
+
+        {/* <Wrapper>
           <TextField
             color="primary"
-            variant="outlined"
+            variant="standard"
             //   value={login.username}
             //   onChange={(e) => onValueChange(e)}
             name="username"
@@ -97,7 +100,7 @@ const Login = () => {
           />
           <TextField
             color="secondary"
-            variant="outlined"
+            variant="standard"
             //   value={login.password}
             //   onChange={(e) => onValueChange(e)}
             name="password"
@@ -106,7 +109,44 @@ const Login = () => {
 
           <LoginButton variant="contained">Login</LoginButton>
           <Text style={{ textAlign: "center" }}>OR</Text>
-          <SignupButton>Create an account</SignupButton>
+          <SignupButton variant="outlined">Create an account</SignupButton>
+        </Wrapper> */}
+
+        {/* <<<<<<<<<<<<<<<<<<<<<<<    Sign In         >>>>>>>>>>>>>>>>> */}
+
+        <Wrapper>
+          <TextField
+            variant="standard"
+            // onChange={(e) => onInputChange(e)}
+            name="name"
+            label="Enter Name"
+          />
+          <TextField
+            variant="standard"
+            // onChange={(e) => onInputChange(e)}
+            name="username"
+            label="Enter Username"
+          />
+          <TextField
+            variant="standard"
+            // onChange={(e) => onInputChange(e)}
+            name="password"
+            label="Enter Password"
+          />
+
+          <SignupButton
+            variant="outlined"
+            //   onClick={() => signupUser()}
+          >
+            Signup
+          </SignupButton>
+          <Text style={{ textAlign: "center" }}>OR</Text>
+          <LoginButton
+            variant="contained"
+            //   onClick={() => toggleSignup()}
+          >
+            Already have an account
+          </LoginButton>
         </Wrapper>
       </Box>
     </Component>
