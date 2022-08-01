@@ -4,7 +4,7 @@ import { Box, TextField, Button, Typography, styled } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
 
-// import { API } from "../../service/api";
+import { API } from "../../service/api";
 // import { DataContext } from "../../context/DataProvider";
 
 {
@@ -105,11 +105,16 @@ const Login = () => {
     account === "signup" ? toggleAccount("login") : toggleAccount("signup");
   };
 
-const signupUser =()=>{
-  
-}
-
-
+  const signupUser = async () => {
+    let response = await API.userSignup(signup);
+    if (response.isSuccess) {
+      showError("");
+      setSignup(signupInitialValues);
+      toggleAccount("login");
+    } else {
+      showError("Something went wrong! please try again later");
+    }
+  };
 
   return (
     <Component>
@@ -175,12 +180,8 @@ const signupUser =()=>{
               label="Enter Password"
             />
 
-            <SignupButton
-              variant="outlined"
-                onClick={() => signupUser()}
-            >
+            <SignupButton variant="outlined" onClick={() => signupUser()}>
               Signup
-
             </SignupButton>
             <Text style={{ textAlign: "center" }}>OR</Text>
             <LoginButton variant="contained" onClick={() => toggleSignup()}>
