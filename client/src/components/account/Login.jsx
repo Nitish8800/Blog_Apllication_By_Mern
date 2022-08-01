@@ -105,6 +105,12 @@ const Login = () => {
     account === "signup" ? toggleAccount("login") : toggleAccount("signup");
   };
 
+const signupUser =()=>{
+  
+}
+
+
+
   return (
     <Component>
       <Box>
@@ -171,9 +177,10 @@ const Login = () => {
 
             <SignupButton
               variant="outlined"
-              //   onClick={() => signupUser()}
+                onClick={() => signupUser()}
             >
               Signup
+
             </SignupButton>
             <Text style={{ textAlign: "center" }}>OR</Text>
             <LoginButton variant="contained" onClick={() => toggleSignup()}>
