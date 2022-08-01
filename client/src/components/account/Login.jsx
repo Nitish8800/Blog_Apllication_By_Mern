@@ -39,7 +39,7 @@ const LoginButton = styled(Button)`
   background: #fb641b;
   color: #fff;
   height: 48px;
-  border-radius: 2px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 const SignupButton = styled(Button)`
@@ -47,13 +47,12 @@ const SignupButton = styled(Button)`
   background: #fff;
   color: #2874f0;
   height: 48px;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 const Text = styled(Typography)`
   color: #878787;
-  font-size: 12px;
+  font-size: 14px;
 `;
 
 const Error = styled(Typography)`
@@ -84,31 +83,33 @@ const Login = () => {
     "https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png";
 
   return (
-    <div>
-      <Component>
+    <Component>
+      <Box>
         <Image src={imageURL} alt="blog image" />
+        <Wrapper>
+          <TextField
+            color="primary"
+            variant="outlined"
+            //   value={login.username}
+            //   onChange={(e) => onValueChange(e)}
+            name="username"
+            label="Enter Username"
+          />
+          <TextField
+            color="secondary"
+            variant="outlined"
+            //   value={login.password}
+            //   onChange={(e) => onValueChange(e)}
+            name="password"
+            label="Enter Password"
+          />
 
-        <TextField
-          color="secondary"
-          variant="outlined"
-          //   value={login.username}
-          //   onChange={(e) => onValueChange(e)}
-          name="username"
-          label="Enter Username"
-        />
-        <TextField
-          color="secondary"
-          variant="outlined"
-          //   value={login.password}
-          //   onChange={(e) => onValueChange(e)}
-          name="password"
-          label="Enter Password"
-        />
-
-        <Button variant="contained">Login</Button>
-        <Button>Create an account</Button>
-      </Component>
-    </div>
+          <LoginButton variant="contained">Login</LoginButton>
+          <Text style={{ textAlign: "center" }}>OR</Text>
+          <SignupButton>Create an account</SignupButton>
+        </Wrapper>
+      </Box>
+    </Component>
   );
 };
 
