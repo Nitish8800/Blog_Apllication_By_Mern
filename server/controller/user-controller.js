@@ -14,7 +14,6 @@ export const singupUser = async (request, response) => {
         const hashedPassword = await bcrypt.hash(request.body.password, 12);
 
         const user = { username: request.body.username, name: request.body.name, password: hashedPassword }
-
         const newUser = new User(user);
         await newUser.save(); 
 
