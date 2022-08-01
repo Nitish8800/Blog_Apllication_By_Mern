@@ -13,11 +13,11 @@ import express from "express";
 //   getComments,
 //   deleteComment,
 // } from "../controller/comment-controller.js";
-// import {
-//   loginUser,
-//   singupUser,
-//   logoutUser,
-// } from "../controller/user-controller.js";
+import {
+  loginUser,
+  singupUser,
+  logoutUser,
+} from "../controller/user-controller.js";
 // import {
 //   authenticateToken,
 //   createNewToken,
@@ -27,9 +27,9 @@ import express from "express";
 
 const router = express.Router();
 
-// router.post("/login", loginUser);
-// router.post("/signup", singupUser);
-// router.post("/logout", logoutUser);
+router.post("/login", loginUser);
+router.post("/signup", singupUser);
+router.post("/logout", logoutUser);
 
 // router.post("/token", createNewToken);
 
