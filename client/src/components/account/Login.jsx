@@ -95,6 +95,10 @@ const Login = () => {
   const imageURL =
     "https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png";
 
+  const onInputChange = (e) => {
+    setSignup({ ...signup, [e.target.name]: e.target.value });
+  };
+
   const toggleSignup = () => {
     account === "signup" ? toggleAccount("login") : toggleAccount("signup");
   };
@@ -146,19 +150,19 @@ const Login = () => {
           <Wrapper>
             <TextField
               variant="standard"
-              // onChange={(e) => onInputChange(e)}
+              onChange={(e) => onInputChange(e)}
               name="name"
               label="Enter Name"
             />
             <TextField
               variant="standard"
-              // onChange={(e) => onInputChange(e)}
+              onChange={(e) => onInputChange(e)}
               name="username"
               label="Enter Username"
             />
             <TextField
               variant="standard"
-              // onChange={(e) => onInputChange(e)}
+              onChange={(e) => onInputChange(e)}
               name="password"
               label="Enter Password"
             />
