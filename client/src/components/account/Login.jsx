@@ -89,7 +89,7 @@ const Login = () => {
   const [error, showError] = useState("");
   const [account, toggleAccount] = useState("login");
 
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
     const { setAccount } = useContext(DataContext);
 
   const imageURL =
@@ -139,8 +139,8 @@ const Login = () => {
       });
 
       // isUserAuthenticated(true);
-      // setLogin(loginInitialValues);
-      // navigate("/");
+      setLogin(loginInitialValues);
+      navigate("/");
     } else {
       showError("Something went wrong! please try again later");
     }
