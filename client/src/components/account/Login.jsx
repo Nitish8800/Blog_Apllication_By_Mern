@@ -5,7 +5,7 @@ import { Box, TextField, Button, Typography, styled } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import { API } from "../../service/api";
-// import { DataContext } from "../../context/DataProvider";
+import { DataContext } from "../../context/DataProvider";
 
 {
   /* <>-------------    Add CSS in Element               ---------------</> */
@@ -90,7 +90,7 @@ const Login = () => {
   const [account, toggleAccount] = useState("login");
 
   //   const navigate = useNavigate();
-  //   const { setAccount } = useContext(DataContext);
+    const { setAccount } = useContext(DataContext);
 
   const imageURL =
     "https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png";
@@ -99,6 +99,10 @@ const Login = () => {
     setSignup({ ...signup, [e.target.name]: e.target.value });
 
     // console.log( [e.target.name], e.target.value);
+  };
+
+  const onValueChange = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
   };
 
   const toggleSignup = () => {
@@ -116,6 +120,32 @@ const Login = () => {
     }
   };
 
+  const loginUser = async () => {
+    let response = await API.userLogin(login);
+    if (response.isSuccess) {
+      showError("");
+
+      sessionStorage.setItem(
+        "accessToken",
+        `Bearer ${response.data.accessToken}`
+      );
+      sessionStorage.setItem(
+        "refreshToken",
+        `Bearer ${response.data.refreshToken}`
+      );
+      setAccount({
+        name: response.data.name,
+        username: response.data.username,
+      });
+
+      // isUserAuthenticated(true);
+      // setLogin(loginInitialValues);
+      // navigate("/");
+    } else {
+      showError("Something went wrong! please try again later");
+    }
+  };
+
   return (
     <Component>
       <Box>
@@ -128,26 +158,23 @@ const Login = () => {
             <TextField
               color="primary"
               variant="standard"
-              //   value={login.username}
-              //   onChange={(e) => onValueChange(e)}
+              value={login.username}
+              onChange={(e) => onValueChange(e)}
               name="username"
               label="Enter Username"
             />
             <TextField
               color="secondary"
               variant="standard"
-              //   value={login.password}
-              //   onChange={(e) => onValueChange(e)}
+              value={login.password}
+              onChange={(e) => onValueChange(e)}
               name="password"
               label="Enter Password"
             />
 
             {error && <Error>{error}</Error>}
 
-            <LoginButton
-              variant="contained"
-              //   onClick={() => loginUser()}
-            >
+            <LoginButton variant="contained" onClick={() => loginUser()}>
               Login
             </LoginButton>
             <Text style={{ textAlign: "center" }}>OR</Text>
@@ -181,7 +208,7 @@ const Login = () => {
               name="password"
               label="Enter Password"
             />
-
+            {error && <Error>{error}</Error>}
             <SignupButton variant="outlined" onClick={() => signupUser()}>
               Signup
             </SignupButton>
