@@ -1,4 +1,5 @@
 import { styled, Box, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const Image = styled(Box)`
   width: 100%;
@@ -23,9 +24,12 @@ const Heading = styled(Typography)`
 `;
 
 const Banner = () => {
+  const theme = useTheme();
   return (
     <Image>
-      <Heading>BLOG</Heading>
+      <Heading sx={{ [theme.breakpoints.down("sm")]: { marginLeft: 0 } }}>
+        BLOG
+      </Heading>
     </Image>
   );
 };
