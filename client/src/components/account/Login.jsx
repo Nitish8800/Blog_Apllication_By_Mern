@@ -83,7 +83,7 @@ const signupInitialValues = {
   password: "",
 };
 
-const Login = () => {
+const Login = ({isUserAuthenticated}) => {
   const [login, setLogin] = useState(loginInitialValues);
   const [signup, setSignup] = useState(signupInitialValues);
   const [error, showError] = useState("");
@@ -138,7 +138,7 @@ const Login = () => {
         username: response.data.username,
       });
 
-      // isUserAuthenticated(true);
+      isUserAuthenticated(true);
       setLogin(loginInitialValues);
       navigate("/");
     } else {

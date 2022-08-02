@@ -13,24 +13,24 @@ import {
 import Login from "./components/account/Login";
 import DataProvider from "./context/DataProvider";
 import Home from "./components/home/Home";
-// import Header from "./components/header/Header";
 // import CreatePost from "./components/create/CreatePost";
-// import DetailView from "./components/details/DetailView";
+import Header from "./components/header/Header";
 // import Update from "./components/create/Update";
 // import About from "./components/about/About";
 // import Contact from "./components/contact/Contact";
+// import DetailView from "./components/details/DetailView";
 
-// const PrivateRoute = ({ isAuthenticated, ...props }) => {
-//   const token = sessionStorage.getItem("accessToken");
-//   return isAuthenticated && token ? (
-//     <>
-//       <Header />
-//       <Outlet />
-//     </>
-//   ) : (
-//     <Navigate replace to="/account" />
-//   );
-// };
+const PrivateRoute = ({ isAuthenticated, ...props }) => {
+  const token = sessionStorage.getItem("accessToken");
+  return isAuthenticated && token ? (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  ) : (
+    <Navigate replace to="/account" />
+  );
+};
 
 function App() {
   const [isAuthenticated, isUserAuthenticated] = useState(false);
@@ -47,7 +47,7 @@ function App() {
 
             <Route
               path="/"
-              // element={<PrivateRoute isAuthenticated={isAuthenticated} />}
+              element={<PrivateRoute isAuthenticated={isAuthenticated} />}
             >
               <Route path="/" element={<Home />} />
             </Route>
