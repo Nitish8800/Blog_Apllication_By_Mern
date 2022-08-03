@@ -40,8 +40,8 @@ router.post("/logout", logoutUser);
 // router.get("/post/:id", authenticateToken, getPost);
 // router.get("/posts", authenticateToken, getAllPosts);
 
-// router.post("/file/upload", upload.single("file"), uploadImage);
-// router.get("/file/:filename", getImage);
+router.post("/file/upload", upload.single("file"), uploadImage);
+router.get("/file/:filename", getImage);
 
 // router.post("/comment/new", authenticateToken, newComment);
 // router.get("/comments/:id", authenticateToken, getComments);
