@@ -114,7 +114,12 @@ const CreatePost = () => {
           name="title"
           placeholder="Title"
         />
-        <Button onClick={() => savePost()} variant="contained" color="primary">
+        <Button
+          onClick={() => savePost()}
+          variant="contained"
+          color="primary"
+          sx={{ m: 1 }}
+        >
           Publish
         </Button>
       </StyledFormControl>

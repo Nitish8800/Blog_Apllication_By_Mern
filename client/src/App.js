@@ -13,7 +13,7 @@ import {
 import Login from "./components/account/Login";
 import DataProvider from "./context/DataProvider";
 import Home from "./components/home/Home";
-// import CreatePost from "./components/create/CreatePost";
+import CreatePost from "./components/create/CreatePost";
 import Header from "./components/header/Header";
 // import Update from "./components/create/Update";
 // import About from "./components/about/About";
@@ -52,14 +52,14 @@ function App() {
               <Route path="/" element={<Home />} />
             </Route>
 
-            {/* <Route
+            <Route
               path="/create"
               element={<PrivateRoute isAuthenticated={isAuthenticated} />}
             >
               <Route path="/create" element={<CreatePost />} />
             </Route>
 
-            <Route
+            {/*   <Route
               path="/details/:id"
               element={<PrivateRoute isAuthenticated={isAuthenticated} />}
             >
