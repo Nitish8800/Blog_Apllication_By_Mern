@@ -78,11 +78,13 @@ const DetailView = () => {
   }, []);
 
   const deleteBlog = async () => {
-    await API.deletePost(post._id);
-    navigate("/");
+    let res = await API.deletePost(post._id);
+    if (res.isSuccess) {
+      navigate("/");
+    }
   };
 
-console.log(post)
+  console.log(post);
 
   return (
     <Container>

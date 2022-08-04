@@ -31,6 +31,9 @@ export const deletePost = async (request, response) => {
   try {
     const post = await Post.findById(request.params.id);
 
+    if (!post) {
+      return response.status(404).json({ msg: "Post Not Found" });
+    }
     await post.delete();
 
     response.status(200).json("post deleted successfully");
