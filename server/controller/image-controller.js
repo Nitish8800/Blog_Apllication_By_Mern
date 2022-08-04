@@ -5,12 +5,13 @@ const url = "http://localhost:8000";
 
 let gfs, gridfsBucket;
 const conn = mongoose.connection;
+// console.log(conn)
 conn.once("open", () => {
   gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
     bucketName: "fs",
   });
   gfs = grid(conn.db, mongoose.mongo);
-  gfs.collection("fs");
+  gfs.collection("fs"); 
 });
 
 export const uploadImage = (request, response) => {

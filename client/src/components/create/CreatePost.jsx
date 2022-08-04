@@ -88,8 +88,10 @@ const CreatePost = () => {
   }, [file]);
 
   const savePost = async () => {
-    await API.createPost(post);
-    navigate("/");
+    let response = await API.createPost(post);
+    if (response.isSuccess) {
+      navigate("/");
+    }
   };
 
   const handleChange = (e) => {
