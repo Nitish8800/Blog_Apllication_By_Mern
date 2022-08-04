@@ -36,6 +36,7 @@ const DeleteIcon = styled(Delete)`
   padding: 5px;
   border: 1px solid #878787;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 const Heading = styled(Typography)`

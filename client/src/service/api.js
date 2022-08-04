@@ -68,13 +68,13 @@ const ProcessError = async (error) => {
   if (error.response) {
     // Request made and server responded with a status code
     // that falls out of the range of 2xx
-    if (error.response?.status === 403) {
+    // if (error.response?.status === 403) {
       // const { url, config } = error.response;
       // console.log(error);
       // try {
       //     let response = await API.getRefreshToken({ token: getRefreshToken() });
       //     if (response.isSuccess) {
-      sessionStorage.clear();
+    //   sessionStorage.clear();
       //         setAccessToken(response.data.accessToken);
 
       //         const requestData = error.toJSON();
@@ -88,15 +88,15 @@ const ProcessError = async (error) => {
       //     }
       // } catch (error) {
       //     return Promise.reject(error)
-      // }
-    } else {
+    //   }
+    // } else {
       console.log("ERROR IN RESPONSE: ", error.toJSON());
       return {
         isError: true,
         msg: API_NOTIFICATION_MESSAGES.responseFailure,
         code: error.response.status,
       };
-    }
+    // }
   } else if (error.request) {
     // The request was made but no response was received
     console.log("ERROR IN RESPONSE: ", error.toJSON());
@@ -107,7 +107,7 @@ const ProcessError = async (error) => {
     };
   } else {
     // Something happened in setting up the request that triggered an Error
-    console.log("ERROR IN RESPONSE: ", error.toJSON());
+    console.log("ERROR IN NetWork: ", error.toJSON());
     return {
       isError: true,
       msg: API_NOTIFICATION_MESSAGES.networkError,
@@ -123,7 +123,7 @@ for (const [key, value] of Object.entries(SERVICE_URLS)) {
     axiosInstance({
       method: value.method,
       url: value.url,
-      data: value.method === "DELETE" ? "" : body,
+      data: value.method === "DELETE" ? {} : body,
       responseType: value.responseType,
       headers: {
         authorization: getAccessToken(),

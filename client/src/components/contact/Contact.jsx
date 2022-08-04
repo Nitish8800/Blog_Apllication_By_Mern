@@ -26,7 +26,7 @@ const About = () => {
     <Box>
       <Banner />
       <Wrapper>
-        <Typography variant="h3">Code for Interview</Typography>
+        <Typography variant="h3">Blog Application</Typography>
         <Text variant="h5">
           I'm a Software Engineer based in India. I've built websites, desktop
           applications and corporate software.
@@ -34,7 +34,7 @@ const About = () => {
           If you are interested, you can view some of my favorite projects here
           <Box component="span" style={{ marginLeft: 5 }}>
             <Link
-              href="https://github.com/kunaltyagi9"
+              href="https://github.com/Nitish8800"
               color="inherit"
               target="_blank"
             >
@@ -46,7 +46,7 @@ const About = () => {
           Need something built or simply want to have chat? Reach out to me on
           <Box component="span" style={{ marginLeft: 5 }}>
             <Link
-              href="https://www.instagram.com/codeforinterview/"
+              href="https://www.instagram.com/_niku_7827/"
               color="inherit"
               target="_blank"
             >
@@ -55,7 +55,7 @@ const About = () => {
           </Box>
           or send me an Email
           <Link
-            href="mailto:codeforinterview@gmail.com?Subject=This is a subject"
+            href="mailto:nitishdev021@gmail.com?Subject=This is a subject"
             target="_blank"
             color="inherit"
           >
