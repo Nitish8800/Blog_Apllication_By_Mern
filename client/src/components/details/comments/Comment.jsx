@@ -30,6 +30,7 @@ const StyledDate = styled(Typography)`
 
 const DeleteIcon = styled(Delete)`
   margin-left: auto;
+  cursor: pointer;
 `;
 
 const Comment = ({ comment, setToggle }) => {
