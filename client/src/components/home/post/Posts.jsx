@@ -16,7 +16,7 @@ const Posts = () => {
   const category = searchParams.get("category");
 
   useEffect(() => {
-    
+
     const fetchData = async () => {
       let response = await API.getAllPosts({ category: category || "" });
       if (response.isSuccess) {

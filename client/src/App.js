@@ -15,10 +15,10 @@ import DataProvider from "./context/DataProvider";
 import Home from "./components/home/Home";
 import CreatePost from "./components/create/CreatePost";
 import Header from "./components/header/Header";
-// import Update from "./components/create/Update";
-// import About from "./components/about/About";
-// import Contact from "./components/contact/Contact";
-// import DetailView from "./components/details/DetailView";
+import Update from "./components/create/Update";
+import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
+import DetailView from "./components/details/DetailView";
 
 const PrivateRoute = ({ isAuthenticated, ...props }) => {
   const token = sessionStorage.getItem("accessToken");
@@ -59,7 +59,7 @@ function App() {
               <Route path="/create" element={<CreatePost />} />
             </Route>
 
-            {/*   <Route
+             <Route
               path="/details/:id"
               element={<PrivateRoute isAuthenticated={isAuthenticated} />}
             >
@@ -85,8 +85,9 @@ function App() {
               element={<PrivateRoute isAuthenticated={isAuthenticated} />}
             >
               <Route path="/contact" element={<Contact />} />
-            </Route> */}
+            </Route> 
           </Routes>
+          
         </Box>
       </BrowserRouter>
     </DataProvider>

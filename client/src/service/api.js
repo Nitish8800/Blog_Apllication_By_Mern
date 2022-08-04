@@ -20,11 +20,11 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   function (config) {
-    // if (config.TYPE.params) {
-    //   config.params = config.TYPE.params;
-    // } else if (config.TYPE.query) {
-    //   config.url = config.url + "/" + config.TYPE.query;
-    // }
+    if (config.TYPE.params) {
+      config.params = config.TYPE.params;
+    } else if (config.TYPE.query) {
+      config.url = config.url + "/" + config.TYPE.query;
+    }
     return config;
   },
   function (error) {
@@ -99,7 +99,7 @@ const ProcessError = async (error) => {
     }
   } else if (error.request) {
     // The request was made but no response was received
-    console.log("ERROR IN REQUEST: ", error.toJSON());
+    console.log("ERROR IN RESPONSE: ", error.toJSON());
     return {
       isError: true,
       msg: API_NOTIFICATION_MESSAGES.requestFailure,
@@ -107,7 +107,7 @@ const ProcessError = async (error) => {
     };
   } else {
     // Something happened in setting up the request that triggered an Error
-    console.log("ERROR IN NETWORK: ", error.toJSON());
+    console.log("ERROR IN RESPONSE: ", error.toJSON());
     return {
       isError: true,
       msg: API_NOTIFICATION_MESSAGES.networkError,
