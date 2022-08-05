@@ -20,9 +20,13 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", Router);
 
+app.get("/", (req, res) => {
+  res.json("Server Start");
+});
+
 const PORT = process.env.PORT || 8000;
 
+Connection();
 app.listen(PORT, () =>
   console.log(`Server is running successfully on the PORT ${PORT}`)
 );
-Connection();

@@ -1,13 +1,10 @@
 import axios from "axios";
 
 import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from "../constants/config";
-import {
-  getAccessToken,
-  getType,
-} from "../utils/common-utils";
+import { getAccessToken, getType } from "../utils/common-utils";
 
 // const API_URL = "http://localhost:8000";
-const API_URL = "";
+const API_URL = "https://top-blog-website.herokuapp.com";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
@@ -68,33 +65,33 @@ const ProcessError = async (error) => {
     // Request made and server responded with a status code
     // that falls out of the range of 2xx
     // if (error.response?.status === 403) {
-      // const { url, config } = error.response;
-      // console.log(error);
-      // try {
-      //     let response = await API.getRefreshToken({ token: getRefreshToken() });
-      //     if (response.isSuccess) {
+    // const { url, config } = error.response;
+    // console.log(error);
+    // try {
+    //     let response = await API.getRefreshToken({ token: getRefreshToken() });
+    //     if (response.isSuccess) {
     //   sessionStorage.clear();
-      //         setAccessToken(response.data.accessToken);
+    //         setAccessToken(response.data.accessToken);
 
-      //         const requestData = error.toJSON();
+    //         const requestData = error.toJSON();
 
-      //         let response1 = await axios({
-      //             method: requestData.config.method,
-      //             url: requestData.config.baseURL + requestData.config.url,
-      //             headers: { "content-type": "application/json", "authorization": getAccessToken() },
-      //             params: requestData.config.params
-      //         });
-      //     }
-      // } catch (error) {
-      //     return Promise.reject(error)
+    //         let response1 = await axios({
+    //             method: requestData.config.method,
+    //             url: requestData.config.baseURL + requestData.config.url,
+    //             headers: { "content-type": "application/json", "authorization": getAccessToken() },
+    //             params: requestData.config.params
+    //         });
+    //     }
+    // } catch (error) {
+    //     return Promise.reject(error)
     //   }
     // } else {
-      console.log("ERROR IN RESPONSE: ", error.toJSON());
-      return {
-        isError: true,
-        msg: API_NOTIFICATION_MESSAGES.responseFailure,
-        code: error.response.status,
-      };
+    console.log("ERROR IN RESPONSE: ", error.toJSON());
+    return {
+      isError: true,
+      msg: API_NOTIFICATION_MESSAGES.responseFailure,
+      code: error.response.status,
+    };
     // }
   } else if (error.request) {
     // The request was made but no response was received
