@@ -11,16 +11,16 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", Router);
 
 const PORT = process.env.PORT || 8000;
-
-if (process.env.NODE_ENV == "production") {
-  app.use(express.static("client/build"));
-}
 
 app.listen(PORT, () =>
   console.log(`Server is running successfully on the PORT ${PORT}`)
