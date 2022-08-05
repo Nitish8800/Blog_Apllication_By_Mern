@@ -18,12 +18,11 @@ app.use("/", Router);
 
 const PORT = process.env.PORT || 8000;
 
-
-if(process.env.NODE_ENV == "production"){
-    app.use(express.static("client/build"))
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static("client/build"));
 }
 
-Connection();
 app.listen(PORT, () =>
   console.log(`Server is running successfully on the PORT ${PORT}`)
 );
+Connection();
