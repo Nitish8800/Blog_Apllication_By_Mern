@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://top-blog-website-nitish8800.vercel.app",
   })
 );
 app.use(bodyParser.json({ extended: true }));

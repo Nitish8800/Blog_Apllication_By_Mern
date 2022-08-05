@@ -49,9 +49,9 @@ const Post = ({ post }) => {
     <Container>
       <Image src={url} alt="post" />
       <Text>{post.categories}</Text>
-      <Heading>{addEllipsis(post.title, 15)}</Heading>
+      <Heading>{addEllipsis(post.title, 20)}</Heading>
       <Text>Author: {post.username}</Text>
-      <Details>{addEllipsis(post.description, 100)}</Details>
+      <Details>{addEllipsis(post.description, 170)}</Details>
     </Container>
   );
 };
