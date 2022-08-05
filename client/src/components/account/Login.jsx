@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import { Box, TextField, Button, Typography, styled } from "@mui/material";
 
@@ -7,9 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { API } from "../../service/api";
 import { DataContext } from "../../context/DataProvider";
 
-{
-  /* <>-------------    Add CSS in Element               ---------------</> */
-}
+/* <>-------------    Add CSS in Element               ---------------</> */
 
 const Component = styled(Box)`
   width: 400px;
@@ -68,9 +66,7 @@ const Error = styled(Typography)`
   font-weight: 600;
 `;
 
-{
-  /* <>-------------    Add CSS in Element               ---------------</> */
-}
+/* <>-------------    Add CSS in Element               ---------------</> */
 
 const loginInitialValues = {
   username: "",
@@ -83,14 +79,14 @@ const signupInitialValues = {
   password: "",
 };
 
-const Login = ({isUserAuthenticated}) => {
+const Login = ({ isUserAuthenticated }) => {
   const [login, setLogin] = useState(loginInitialValues);
   const [signup, setSignup] = useState(signupInitialValues);
   const [error, showError] = useState("");
   const [account, toggleAccount] = useState("login");
 
-    const navigate = useNavigate();
-    const { setAccount } = useContext(DataContext);
+  const navigate = useNavigate();
+  const { setAccount } = useContext(DataContext);
 
   const imageURL =
     "https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png";

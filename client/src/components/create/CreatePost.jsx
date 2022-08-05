@@ -85,7 +85,7 @@ const CreatePost = () => {
     getImage();
     post.categories = location.search?.split("=")[1] || "All";
     post.username = account.username;
-  }, [file]);
+  }, [file, post]);
 
   const savePost = async () => {
     let response = await API.createPost(post);

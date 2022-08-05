@@ -77,7 +77,7 @@ const Update = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const getImage = async () => {
@@ -94,7 +94,7 @@ const Update = () => {
       }
     };
     getImage();
-  }, [file]);
+  }, [file, post]);
 
   const updateBlogPost = async () => {
     await API.updatePost(post);

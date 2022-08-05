@@ -18,6 +18,11 @@ app.use("/", Router);
 
 const PORT = process.env.PORT || 8000;
 
+
+if(process.env.NODE_ENV == "production"){
+    
+}
+
 Connection();
 app.listen(PORT, () =>
   console.log(`Server is running successfully on the PORT ${PORT}`)

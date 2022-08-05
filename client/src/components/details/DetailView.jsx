@@ -76,7 +76,7 @@ const DetailView = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   const deleteBlog = async () => {
     let res = await API.deletePost(post._id);
