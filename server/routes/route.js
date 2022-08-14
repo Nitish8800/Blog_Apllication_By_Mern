@@ -13,11 +13,13 @@ import {
   getComments,
   deleteComment,
 } from "../controller/comment-controller.js";
+
 import {
   loginUser,
   singupUser,
   logoutUser,
 } from "../controller/user-controller.js";
+
 import {
   authenticateToken,
   createNewToken,
@@ -45,6 +47,7 @@ router.get("/file/:filename", getImage);
 
 router.post("/comment/new", authenticateToken, newComment);
 router.get("/comments/:id", authenticateToken, getComments);
+
 router.delete("/comment/delete/:id", authenticateToken, deleteComment);
 
 export default router;
