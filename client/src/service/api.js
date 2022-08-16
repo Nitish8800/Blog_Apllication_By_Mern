@@ -57,7 +57,7 @@ const processResponse = (response) => {
 };
 
 ///////////////////////////////
-// If success -> returns { isSuccess: true, data: object }
+// If success -> returns { isSuccess: true, data: object}
 // If fail -> returns { isError: true, status: string, msg: string, code: int }
 //////////////////////////////
 const ProcessError = async (error) => {
