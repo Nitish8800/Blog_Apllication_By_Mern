@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const PostSchema = mongoose.Schema({
   title: {
     type: String,
@@ -28,5 +27,4 @@ const PostSchema = mongoose.Schema({
 });
 
 const post = mongoose.model("post", PostSchema);
-
 export default post;
