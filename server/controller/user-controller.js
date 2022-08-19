@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 
 import User from "../model/user.js";
 import Token from "../model/token.js";
-
 dotenv.config();
 
 export const singupUser = async (request, response) => {
